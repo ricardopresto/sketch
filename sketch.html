@@ -1,0 +1,77 @@
+<html>
+<head>
+
+</head>
+<body>
+
+<div id='container'></div>
+</br>
+<button id='button'>Reset</button>
+
+<script type="text/javascript">
+
+function drawgrid(squares) {
+var cont = document.getElementById('container');
+for (let x=0 ; x<squares; x++) {
+ for (let x=0 ; x<squares; x++) {
+  var box = document.createElement('div');
+  box.classList.add('box');
+  box.style.width = (Math.floor(600/squares) - 2);
+  box.style.height= (Math.floor(600/squares) - 2);
+  cont.appendChild(box);
+ } 
+}
+var d = document.getElementsByClassName('box');
+var arr = Array.from(d);
+for (let x = 0; x < arr.length; x++) {
+  arr[x].addEventListener('click', arsefunction) 
+  }
+}
+
+function arsefunction() {
+this.style.backgroundColor = 'blue' 
+}
+
+function reset() {
+var canvas = document.getElementById("container");
+while (canvas.firstChild) {
+    canvas.removeChild(canvas.firstChild);
+}
+  var size = prompt('Grid size?');
+  drawgrid(size);
+}
+
+
+drawgrid(16);
+
+
+var btn = document.getElementById('button');
+btn.addEventListener('click', reset);
+
+</script>
+
+<style>
+
+#container {
+  width: 600px;
+  height: 600px;
+  background-color: white;
+}
+
+.box {
+  display: inline-block;
+  background-color: white;
+  border-style: solid;
+  border-radius: 4px;
+  border-width: 1px;
+  border-color: blue;
+}
+
+#button {
+  padding: 30px;
+  font-size: 20pt;
+}
+
+</style>
+</body>
+</html>
